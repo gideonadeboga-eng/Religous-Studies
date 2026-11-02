@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Level RS Revision Tracker</title>
+  <meta name="description" content="Track your A Level Religious Studies revision against the specification and generate exam-style questions on key knowledge, origins of ideas and evaluation.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%93%96%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#view">Skip to content</a>
+
+  <header class="top">
+    <div class="top-inner">
+      <a class="brand" href="#/dashboard">
+        <span class="brand-mark" aria-hidden="true">RS</span>
+        <span class="brand-text">A Level RS <em>Revision</em></span>
+      </a>
+      <nav aria-label="Main">
+        <a href="#/dashboard" data-route="dashboard">Dashboard</a>
+        <a href="#/tracker" data-route="tracker">Spec tracker</a>
+        <a href="#/practice" data-route="practice">Practice</a>
+        <a href="#/data" data-route="data">Data</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="view" tabindex="-1"></main>
+
+  <footer class="foot">
+    <p>Your progress is saved in this browser only. Use <a href="#/data">Data → Export</a> to back it up or move to another device.</p>
+  </footer>
+
+  <dialog id="add-dlg" aria-labelledby="add-title">
+    <form id="add-form" method="dialog">
+      <h2 id="add-title">Add a spec point or knowledge card</h2>
+      <p class="muted small">Only the title and topic are required. The more you add, the better the generated questions and mark schemes (one point per line).</p>
+      <div class="grid2">
+        <label>Topic <input id="f-topic" list="topic-list" required placeholder="e.g. Religious Language"></label>
+        <datalist id="topic-list"></datalist>
+        <label>Title <input id="f-title" required placeholder="e.g. Aquinas' analogy"></label>
+        <label>Thinker / source <input id="f-thinker" placeholder="e.g. Thomas Aquinas"></label>
+        <label>Short name for questions <input id="f-q" placeholder="e.g. Aquinas' analogical approach"></label>
+      </div>
+      <label>Key knowledge (one point per line) <textarea id="f-summary" rows="4"></textarea></label>
+      <label>Why was it developed? (one per line) <textarea id="f-why" rows="3"></textarea></label>
+      <div class="grid2">
+        <label>Strengths (one per line) <textarea id="f-strengths" rows="3"></textarea></label>
+        <label>Weaknesses / criticisms (one per line) <textarea id="f-weaknesses" rows="3"></textarea></label>
+      </div>
+      <label>Key terms (one per line, as <code>term: definition</code>) <textarea id="f-terms" rows="3"></textarea></label>
+      <div class="dlg-actions">
+        <button class="btn ghost" type="button" data-action="close-add">Cancel</button>
+        <button class="btn primary" type="submit">Add to spec</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
